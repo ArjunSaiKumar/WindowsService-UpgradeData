@@ -25,7 +25,7 @@ To upgrade the instructions for Visual Studio 2022 and .NET Framework 4.8, follo
 
 3. Navigate to the directory where your `.exe` file is located using the `cd` command. For example:
    ```
-   cd C:\Sandbox\WindowServices\TestWindowService\TestWindowService\bin\Debug
+   cd /d C:\Sandbox\WindowServices\TestWindowService\TestWindowService\bin\Debug
    ```
 
 4. Install the service using the following command:
