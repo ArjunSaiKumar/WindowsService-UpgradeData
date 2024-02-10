@@ -1,26 +1,43 @@
-# UpgradeData
+To upgrade the instructions for Visual Studio 2022 and .NET Framework 4.8, follow these steps:
 
-Now return to the Service1.cs [Design] and **right-click** on the editor window then click **"Add Installer".**
-Then you can see that there will be a new file called "ProjectInstaller.cs" as shown in the following.
-Right-click on the "serviceInstaller1" and click "Properties".
-Change the ServiceName to "Test Windows Service" (or your name) and StartType to "Manual" (or you can choose "Automatic" if you need this service to be automatic).
-Right-click the serviceProcessInstaller1, go to the properties window, and change "Account" to "LocalSystem".
-Build the project to see the .exe file at the location where you created the solution.
+### Adding Installer to Service
 
+1. Open your `Service1.cs` file in Visual Studio 2022.
 
-Installing the Windows Service
-Go to "Start" >> "All Programs" >> "Microsoft Visual Studio 2012" >> "Visual Studio Tools" then click "Developer Command Prompt for VS2022".
+2. Right-click on the editor window and select "Add Installer". This will generate a new file called `ProjectInstaller.cs`.
 
-Type the following command:
+3. Open `ProjectInstaller.cs`. You'll see two components: `serviceInstaller1` and `serviceProcessInstaller1`.
 
-cd <physical location of your TestWindowService.exe file>
-in my case it is :
-cd C:\Sandbox\WindowServices\TestWindowService\TestWindowService\bin\Debug
+4. Set properties for `serviceInstaller1`:
+   - Change `ServiceName` to "Test Windows Service" or your desired name.
+   - Set `StartType` to "Manual" or "Automatic" as per your requirement.
 
-Next type the following command:
-**installutil UpgradeData.exe
-and press Enter.**
+5. Set properties for `serviceProcessInstaller1`:
+   - Change `Account` to "LocalSystem".
 
-To uninstall
-**installutil /u UpgradeData.exe**
+6. Build the project. You'll find the `.exe` file in the output directory.
 
+### Installing the Windows Service
+
+1. Open "Visual Studio 2022".
+
+2. Go to "Developer Command Prompt for VS2022".
+
+3. Navigate to the directory where your `.exe` file is located using the `cd` command. For example:
+   ```
+   cd C:\Sandbox\WindowServices\TestWindowService\TestWindowService\bin\Debug
+   ```
+
+4. Install the service using the following command:
+   ```
+   installutil UpgradeData.exe
+   ```
+
+### Uninstalling the Windows Service
+
+To uninstall the service, you can use the `installutil` with the `/u` parameter:
+```
+installutil /u UpgradeData.exe
+```
+
+These steps should help you upgrade the instructions for adding an installer to your Windows service in Visual Studio 2022 targeting .NET Framework 4.8.
